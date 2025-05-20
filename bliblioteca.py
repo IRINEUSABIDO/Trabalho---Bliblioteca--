@@ -1,9 +1,10 @@
 class Livro:
-    def __init__(self, titulo:str, autor:str, ano_de_publicacao:int, status:str):
+    def __init__(self, titulo:str, autor:str, ano_de_publicacao:int, status:str, id:str):
         self.titulo = titulo
         self.autor = autor
         self.ano_de_publicacao = ano_de_publicacao
         self.status = status
+        self.id = id
 
     def editar_livro(self, novo_titulo:str, novo_autor:str, novo_ano_de_publicacao:int, novo_status:str):
         self.titulo = novo_titulo
@@ -12,10 +13,7 @@ class Livro:
         self.status = novo_status
 
     def informacoes_do_livro(self):
-        print(f"Título: {self.titulo}")
-        print(f"Autor: {self.autor}")
-        print(f"Ano de publicação: {self.ano_de_publicacao}")
-        print(f"Status: {self.status}")
+       return  f"ID: {self.id} \n Título: {self.titulo} \n Autor: {self.autor} \n Ano de publicação: {self.ano_de_publicacao} \n Status: {self.status}"
         
 
 class Biblioteca:
@@ -28,11 +26,13 @@ class Biblioteca:
       
     def listar_livros(self):
         for x in self.lista_de_livros:
-            x.informacoes_do_livro()
+            print(f"{x.informacoes_do_livro()}\n")
 
 
-Senhor_dos_aneis = Livro("O senhor dos aneis", "J.R.R. Tolkien", 1954, "Disponível")
+Senhor_dos_aneis = Livro("O senhor dos aneis", "J.R.R. Tolkien", 1954, "Disponível", "1109")
+Carlos = Livro("The carlos", "Carlinhos", 2020, "Emprestado", "69")
 Pedro = Biblioteca("Biblioteca do Pedro")
 
 Pedro.adicionar_livro(Senhor_dos_aneis)
+Pedro.adicionar_livro(Carlos)
 Pedro.listar_livros()
